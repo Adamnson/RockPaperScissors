@@ -1,5 +1,5 @@
-console.log(Math.random());
-
+// a function to assign a computer choice 
+// depending on a random number generator
 function getComputerChoice() {
   let random_number = Math.random();
   let computer_choice = '';
@@ -15,7 +15,14 @@ function getComputerChoice() {
   
   return computer_choice;
 }
+
+// #debug
 // console.log(getComputerChoice());
+
+// function calculates winner in the game
+// takes player's choice and computer's choice
+// decides the winner based on rules, 
+// recurssively calls self until game ends
 
 function calcWinner(playerSelection, computerSelection) {
   let player = playerSelection.toUpperCase();
