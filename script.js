@@ -19,11 +19,6 @@ function getComputerChoice() {
 // #debug
 // console.log(getComputerChoice());
 
-// function calculates winner in the game
-// takes player's choice and computer's choice
-// decides the winner based on rules, 
-// recurssively calls self until game ends
-
 function calcWinner(playerSelection, computerSelection) {
   let player = playerSelection.toUpperCase();
   let comp   = computerSelection.toUpperCase();
