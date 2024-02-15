@@ -62,4 +62,11 @@ function calcWinner(playerSelection, computerSelection) {
   }
 }
 
-calcWinner('rock', getComputerChoice());
+const options = document.querySelector(".options");
+
+options.addEventListener('click', function(event) {
+  // console.log(event.target.id)
+  calcWinner(event.target.id, getComputerChoice());
+});
+
+// calcWinner('rock', getComputerChoice());
