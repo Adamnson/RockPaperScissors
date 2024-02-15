@@ -1,3 +1,5 @@
+const SCORE = 5;
+
 const game = document.querySelector('.game');
 let playerScore = 0;
 let compScore = 0;
@@ -20,18 +22,12 @@ function getComputerChoice() {
   return computer_choice;
 }
 
-// #debug
-// console.log(getComputerChoice());
-
 function calcWinner(playerSelection, computerSelection) {
   let player = playerSelection.toUpperCase();
   let comp   = computerSelection.toUpperCase();
   let winFlag = false;
   let repFlag = false;
   let message = '';
-
-  // console.log("player:", player);
-  // console.log("computer:", comp);
 
   if (player === comp) {
     repFlag = true;
@@ -56,20 +52,16 @@ function calcWinner(playerSelection, computerSelection) {
   }
 
   if (!repFlag && winFlag) {
-    // console.log("Winner!!");
     message = " Winner!!";
     playerScore++;
   }
   else if (!repFlag && !winFlag){
-    // console.log("Oh ho! You lost!");
     message = " Oh ho! You lost!";
     compScore++;
   }
   else {
     console.log("ROCK....PAPER....SCISSOR.....")
     message += " playing again, make a selection";
-
-    // calcWinner(playerSelection, getComputerChoice());
   }
 
   addToHTML(player, comp, message, playerScore, compScore);
@@ -97,12 +89,11 @@ function addToHTML(player, comp, message) {
 const options = document.querySelector(".options");
 
 options.addEventListener('click', function(event) {
-  // console.log(event.target.id)
   calcWinner(event.target.id, getComputerChoice());
 });
 
 function declareResult(playerScore, compScore) {
-  if(playerScore === 5 || compScore === 5) {
+  if(playerScore === SCORE || compScore === SCORE) {
     const decision = document.createElement('p');
     let result = '';
     (playerScore === 5) ?
@@ -115,4 +106,3 @@ function declareResult(playerScore, compScore) {
     btns.forEach((btn)=> btn.disabled = true);
   }
 }
-// calcWinner('rock', getComputerChoice());
