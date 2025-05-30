@@ -1,5 +1,7 @@
-var img_player = document.getElementById("user");
-var img_computer = document.getElementById("computer");
+var img_player = document.getElementById("userImage");
+var img_computer = document.getElementById("computerImage");
+var score_player = document.getElementById("playerScore");
+var score_computer = document.getElementById("computerScore");
 const SCORE = 5;
 
 const game = document.querySelector('.game');
@@ -75,7 +77,7 @@ function calcWinner(playerSelection, computerSelection) {
     compScore++;
   }
   else {
-    console.log("ROCK....PAPER....SCISSOR.....")
+    // console.log("ROCK....PAPER....SCISSOR.....")
     message += " playing again, make a selection";
   }
 
@@ -84,21 +86,23 @@ function calcWinner(playerSelection, computerSelection) {
 }
 
 function addToHTML(player, comp, message) {
-  const tempEle = document.createElement('p');
-  let content = '';
-  content += "Player's choice : " +  player ;
-  content += "</br>";
-  content += "Computer's choice :" +  comp;
-  content += "</br>";
-  content += message;
-  content += "</br>";
-  content += "Player's score : " + playerScore;
-  content += "</br>";
-  content += "Computer's score : " + compScore;
-  content += "</br>";
+  score_computer.innerHTML = compScore;
+  score_player.innerHTML = playerScore;
+  // const tempEle = document.createElement('p');
+  // let content = '';
+  // content += "Player's choice : " +  player ;
+  // content += "</br>";
+  // content += "Computer's choice :" +  comp;
+  // content += "</br>";
+  // content += message;
+  // content += "</br>";
+  // content += "Player's score : " + playerScore;
+  // content += "</br>";
+  // content += "Computer's score : " + compScore;
+  // content += "</br>";
 
-  tempEle.innerHTML = content;
-  game.appendChild(tempEle);
+  // tempEle.innerHTML = content;
+  // game.appendChild(tempEle);
 }
 
 const options = document.querySelector(".options");

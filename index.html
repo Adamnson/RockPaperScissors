@@ -12,8 +12,18 @@
     <button id="paper">Paper</button>
     <button id="scissor">Scissor</button>
   </div>
-  <div class="image" ><img src="" id="user"  height="100" width="100"></div>
-  <div class="image" ><img src="" id="computer"  height="100" width="100"></div>
+  <div class="game-area" id="player">
+    <div class="image" >
+      <img src="" id="userImage"  height="100" width="100">
+    </div>
+    <p>Player score: <span id="playerScore">0</span> </p>
+  </div>
+  <div class="game-area" id="computer">
+    <div class="image" >
+      <img src="" id="computerImage"  height="100" width="100">
+    </div>
+    <p>Computer score: <span id="computerScore">0</span> </p>
+  </div>
   <div class="score"></div>
   <div class="game"></div>
   <script src="script.js"></script>
