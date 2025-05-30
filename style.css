@@ -1,0 +1,21 @@
+body {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.options > button {
+  margin: 12%;
+}
+
+.image {
+  height: 100px;
+  width: 100px;
+  border: 5px solid red;
+  border-radius: 5px;
+}

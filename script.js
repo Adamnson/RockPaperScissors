@@ -1,3 +1,5 @@
+var img_player = document.getElementById("user");
+var img_computer = document.getElementById("computer");
 const SCORE = 5;
 
 const game = document.querySelector('.game');
@@ -11,12 +13,15 @@ function getComputerChoice() {
   let computer_choice = '';
   if (random_number < 0.33) {
     computer_choice = "rock";
+    img_computer.src="resources/rock.png"
   }
   else if (random_number < 0.66) {
     computer_choice = "paper";
+    img_computer.src="resources/paper.png"
   }
   else {
     computer_choice = "scissor";
+    img_computer.src="resources/scissors.png"
   }
   
   return computer_choice;
@@ -28,6 +33,16 @@ function calcWinner(playerSelection, computerSelection) {
   let winFlag = false;
   let repFlag = false;
   let message = '';
+
+  if(player==='ROCK'){
+    img_player.src = 'resources/rock.png'
+  }
+  else if (player === 'SCISSOR') {
+    img_player.src = 'resources/scissors.png'
+  }
+  else {
+    img_player.src = 'resources/paper.png'
+  }
 
   if (player === comp) {
     repFlag = true;
