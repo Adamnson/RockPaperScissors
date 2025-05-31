@@ -31,15 +31,7 @@ function getComputerChoice() {
   return computer_choice;
 }
 
-function calcWinner(playerSelection, computerSelection) {
-  img_computer.style.display = "block";
-  img_player.style.display = "block";
-  let player = playerSelection.toUpperCase();
-  let comp   = computerSelection.toUpperCase();
-  let winFlag = false;
-  let repFlag = false;
-  let message = '';
-
+function updatePlayerSideImage(player) {
   if(player==='ROCK'){
     img_player.src = 'resources/rock.png'
   }
@@ -49,27 +41,32 @@ function calcWinner(playerSelection, computerSelection) {
   else {
     img_player.src = 'resources/paper.png'
   }
+}
+
+function getWinFlag(player,comp) {
+  if (  ((player === "ROCK") && (comp === "SCISSOR"))
+      ||((player === "PAPER") && (comp === "ROCK"))
+      ||((player === "SCISSOR") && (comp === "PAPER"))  )
+        return true;
+}
+
+function calcWinner(playerSelection, computerSelection) {
+  img_computer.style.display = "block";
+  img_player.style.display = "block";
+  let player = playerSelection.toUpperCase();
+  let comp   = computerSelection.toUpperCase();
+  let winFlag = false;
+  let repFlag = false;
+  let message = '';
+
+  updatePlayerSideImage(player);
 
   if (player === comp) {
     repFlag = true;
   }
 
   if (!repFlag) {
-    if (player === "ROCK") {
-      if (comp === "SCISSOR") {
-        winFlag = true;
-      }
-    }
-    if (player === "PAPER") {
-      if (comp === "ROCK") {
-        winFlag = true;
-      }
-    }
-    if (player === "SCISSOR") {
-      if (comp === "PAPER") {
-        winFlag = true;
-      }
-    }
+    winFlag = getWinFlag(player,comp)
   }
 
   if (!repFlag && winFlag) {
