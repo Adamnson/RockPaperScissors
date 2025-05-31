@@ -32,6 +32,8 @@ function getComputerChoice() {
 }
 
 function calcWinner(playerSelection, computerSelection) {
+  img_computer.style.display = "block";
+  img_player.style.display = "block";
   let player = playerSelection.toUpperCase();
   let comp   = computerSelection.toUpperCase();
   let winFlag = false;
@@ -134,6 +136,8 @@ btn_reset.addEventListener('click', ()=>  {
   compScore = 0;
   score_computer.innerHTML = compScore;
   score_player.innerHTML = playerScore;
+  img_computer.style.display = 'none';
+  img_player.style.display = 'none';
   btn_controls.forEach((btn) => btn.disabled = false);
   btn_reset.style.display = 'none';
   var result = document.querySelector('.game > p')

@@ -21,6 +21,11 @@ body {
   border-radius: 5px;
 }
 
+#userImage,
+#computerImage {
+  display: none;
+}
+
 #reset {
   display: none;
 }
