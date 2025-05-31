@@ -2,6 +2,8 @@ var img_player = document.getElementById("userImage");
 var img_computer = document.getElementById("computerImage");
 var score_player = document.getElementById("playerScore");
 var score_computer = document.getElementById("computerScore");
+var btn_reset = document.getElementById("reset");
+var btn_controls = Array.from(document.getElementsByClassName("control"));
 const SCORE = 5;
 
 const game = document.querySelector('.game');
@@ -79,6 +81,7 @@ function calcWinner(playerSelection, computerSelection) {
   else {
     // console.log("ROCK....PAPER....SCISSOR.....")
     message += " playing again, make a selection";
+    // this still need to be handled
   }
 
   addToHTML(player, comp, message, playerScore, compScore);
@@ -120,8 +123,19 @@ function declareResult(playerScore, compScore) {
     result = 'Better Luck Next Time';
 
     decision.innerHTML = result;
+    btn_reset.style.display = "block"
     game.appendChild(decision);
-    const btns = document.querySelectorAll('button')
-    btns.forEach((btn)=> btn.disabled = true);
+    btn_controls.forEach((btn)=> btn.disabled = true);
   }
 }
+
+btn_reset.addEventListener('click', ()=>  {
+  playerScore = 0;
+  compScore = 0;
+  score_computer.innerHTML = compScore;
+  score_player.innerHTML = playerScore;
+  btn_controls.forEach((btn) => btn.disabled = false);
+  btn_reset.style.display = 'none';
+  var result = document.querySelector('.game > p')
+  game.removeChild(result)
+})
