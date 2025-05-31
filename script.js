@@ -109,9 +109,9 @@ function addToHTML(player, comp, message) {
 
 const options = document.querySelector(".options");
 
-options.addEventListener('click', function(event) {
-  calcWinner(event.target.id, getComputerChoice());
-});
+btn_controls.forEach( (btn) => btn.addEventListener('click', () => {
+  calcWinner(btn.id, getComputerChoice());
+}));
 
 function declareResult(playerScore, compScore) {
   if(playerScore === SCORE || compScore === SCORE) {
